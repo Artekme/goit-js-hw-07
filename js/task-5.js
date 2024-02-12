@@ -11,7 +11,7 @@ const body = document.querySelector("body");
 const hendleClick = (event) => {
   const randomColor = getRandomHexColor();
   body.style.backgroundColor = randomColor;
-  span.style.color = randomColor;
+  span.innerHTML = randomColor;
   return;
 };
 

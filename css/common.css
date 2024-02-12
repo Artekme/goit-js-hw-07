@@ -49,16 +49,12 @@ h2 {
 
 .gallery {
   display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-content: space-around;
-  margin: 100px 165px;
+  gap: 24px;
 }
 ul > li {
   list-style-type: none;
 }
 .imgOfGallery {
-  margin-left: 24px;
   margin-bottom: 48px;
   height: 300px;
 }

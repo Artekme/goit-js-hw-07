@@ -4,33 +4,31 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 
-function creatinfOfDivs() {
-  for (let i = 1; i <= numberOfBoxes.value; i++) {
+function createDivs() {
+  divBoxes.innerHTML = "";
+  for (let i = 1; i <= +numberOfBoxes.value; i++) {
     const divs = document.createElement("div");
-    divs.classList.add("data-new");
     divs.style.backgroundColor = getRandomHexColor();
     divs.style.height = 20 + 10 * i + "px";
     divs.style.width = 20 + 10 * i + "px";
     divBoxes.append(divs);
   }
+  numberOfBoxes.value = "";
 }
+
 const divBoxes = document.getElementById("boxes");
 const numberOfBoxes = document.querySelector('input[type="number"]');
 const createBtn = document.querySelector("button[data-create]");
 const destroyBtn = document.querySelector("button[data-destroy]");
 
 const creatingFoo = (event) => {
-  if (numberOfBoxes.value <= 100) {
-    creatinfOfDivs();
+  if (+numberOfBoxes.value >= 1 && +numberOfBoxes.value <= 100) {
+    createDivs();
   }
 };
 
 const removingFoo = (event) => {
-  const boxesToRemove = divBoxes.getElementsByClassName("data-new");
-  const boxesToRemoveArray = Array.from(boxesToRemove);
-  boxesToRemoveArray.forEach(function (element) {
-    element.remove();
-  });
+  divBoxes.innerHTML = "";
 };
 
 createBtn.addEventListener("click", creatingFoo);
